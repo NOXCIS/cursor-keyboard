@@ -5,3 +5,7 @@
 LatinIME.iml
 build/
 local.properties
+
+# Python
+__pycache__/
+*.pyc
