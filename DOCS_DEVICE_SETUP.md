@@ -80,11 +80,28 @@ source termux_context_hook.sh     # add to ~/.zshrc / ~/.bashrc
 
 Open **Cursor Agent Settings** (a launcher icon) and set:
 
+- **Connection type**: `Local chroot (loopback)`
 - **Bridge host**: `127.0.0.1`
 - **Bridge port**: `9043`
 - **Workspace directory**: e.g. `/data/data/com.termux/files/home` (or `~` in the chroot)
 - **Auto-approve tool calls**: on for unattended use, off for confirmations
 - **Capture shell context from the bridge**: on
+
+### External / remote agent (optional)
+
+To run the agent somewhere other than the local chroot (e.g. a server or a
+Cloudflare Tunnel origin), set **Connection type** to `External agent URL` and
+enter the URL:
+
+- Direct TLS: `tls://host:9043`
+- Behind Cloudflare Tunnel (WebSocket over HTTPS): `wss://<tunnel-hostname>` or
+  `https://<tunnel-hostname>`
+
+Set the **Shared token** to match the bridge's `--token`. The keyboard stays
+unprivileged: all root-capable work (the `agent acp` process, context capture)
+runs on the bridge side, whether local or remote. See `bridge/README.md` for the
+full runbook. Tap **Show setup command** in external mode for the remote-side
+command (including `cloudflared tunnel --url http://localhost:9043`).
 
 ## 6. End-to-end verification checklist
 

@@ -6,4 +6,11 @@
     <color name="agent_blue">#2962FF</color>
     <color name="agent_green">#2E7D32</color>
     <color name="agent_red">#C62828</color>
+
+    <color name="agent_status_ok">#2E7D32</color>
+    <color name="agent_status_warn">#F9A825</color>
+    <color name="agent_status_error">#C62828</color>
+    <color name="agent_section_header">#263238</color>
+    <color name="agent_divider">#E0E0E0</color>
+    <color name="agent_soft_bg">#F5F5F5</color>
 </resources>

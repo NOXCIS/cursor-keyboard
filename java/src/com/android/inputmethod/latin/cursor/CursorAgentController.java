@@ -70,6 +70,10 @@ public class CursorAgentController implements AgentPanelView.Listener {
         mClient = client;
         String sessionId = null;
         try {
+            client.setConfig(mConfig);
+            if (!authenticateIfNeeded(client)) {
+                return;
+            }
             sessionId = client.connectBlocking(mConfig, new ClientListener());
             if (sessionId == null) {
                 postError("Could not establish an agent session.");
@@ -84,6 +88,24 @@ public class CursorAgentController implements AgentPanelView.Listener {
             client.sendPrompt(sessionId, prompt);
         } catch (Exception e) {
             postError("Failed: " + e.getMessage());
+        }
+    }
+
+    /** Push the API key to the bridge if one was saved; a no-op when none is configured. */
+    private boolean authenticateIfNeeded(CursorAgentClient client) {
+        if (!mConfig.hasApiKey()) {
+            return true;
+        }
+        if (!KeyVault.isUnlocked()) {
+            postError("Master key is locked. Open Cursor Agent Settings and unlock it.");
+            return false;
+        }
+        try {
+            String key = KeyVault.decryptWithCached(mConfig.apiKeyEnc);
+            return client.authenticate(key);
+        } catch (Exception e) {
+            postError("Authentication failed: " + e.getMessage());
+            return false;
         }
     }
 

@@ -76,8 +76,24 @@ See [`bridge/README.md`](bridge/README.md) for the full guide. Summary:
 2. Authenticate (prefer a **user-scoped** API key).
 3. Run the bridge: `python3 cursor_acp_bridge.py --host 127.0.0.1 --port 9043 --workspace ~`.
 4. (Optional) source `termux_context_hook.sh` to keep the context fresh.
-5. Open the **Cursor Agent Settings** app and set `Bridge host`/`Bridge port` to
-   `127.0.0.1` / `9043`.
+5. Open the **Cursor Agent Settings** app and set **Connection type** to
+   `Local chroot (loopback)` with `Bridge host`/`Bridge port` = `127.0.0.1` / `9043`.
+
+### External / remote agent (optional)
+
+The keyboard can also talk to an agent that is **not** running in the local
+chroot, leaving all privileged work on the remote bridge side and keeping the
+app unprivileged. Set **Connection type** to `External agent URL` and point it
+at a reachable bridge:
+
+- Direct TLS: `tls://host:9043`
+- Behind Cloudflare Tunnel (WebSocket over HTTPS): `wss://<tunnel-hostname>` or
+  `https://<tunnel-hostname>`
+
+Any external bridge should require a **shared token** (set it in the app and
+pass `--token` to the bridge) and be reachable only over TLS/HTTPS. See
+[`bridge/README.md`](bridge/README.md) for the runbook, including the
+`cloudflared tunnel --url http://localhost:9043` origin setup.
 
 ## Usage
 
