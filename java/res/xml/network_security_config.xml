@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Allow cleartext connections to the local Cursor-agent bridge daemon.
+     The keyboard talks to `agent acp` on 127.0.0.1 / localhost within the
+     on-device Debian chroot, which does not use TLS. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">127.0.0.1</domain>
+        <domain includeSubdomains="true">localhost</domain>
+    </domain-config>
+</network-security-config>

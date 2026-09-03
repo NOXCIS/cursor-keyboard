@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/agent_panel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/agent_white"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/agent_toggle_button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:minWidth="48dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="Cursor"
+            android:textStyle="bold"
+            android:textColor="@color/agent_black" />
+
+        <TextView
+            android:id="@+id/agent_status_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="Idle"
+            android:textSize="14sp"
+            android:textColor="@color/agent_gray"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <Button
+            android:id="@+id/agent_stop_button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:minWidth="48dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="Stop"
+            android:textColor="@color/agent_black"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/agent_content_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ScrollView
+            android:id="@+id/agent_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/agent_content_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/agent_black"
+                android:textIsSelectable="true"
+                android:textSize="14sp"
+                android:padding="4dp" />
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/agent_insert_button"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:minWidth="48dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="Insert"
+                android:textColor="@color/agent_blue" />
+
+            <Button
+                android:id="@+id/agent_clear_button"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:minWidth="48dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="Clear"
+                android:textColor="@color/agent_black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/agent_permission_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="4dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/agent_permission_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/agent_black"
+                android:textSize="13sp"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+            <Button
+                android:id="@+id/agent_permission_allow"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:minWidth="48dp"
+                android:text="Allow"
+                android:textColor="@color/agent_green" />
+
+            <Button
+                android:id="@+id/agent_permission_deny"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:minWidth="48dp"
+                android:text="Deny"
+                android:textColor="@color/agent_red" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

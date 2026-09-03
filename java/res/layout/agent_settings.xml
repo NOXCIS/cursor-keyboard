@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bridge host"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/agent_host"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="127.0.0.1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bridge port"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/agent_port"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="9043" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Workspace directory"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/agent_workspace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="/" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Model (optional)"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/agent_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="(leave blank for default)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="API key file path (optional)"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/agent_api_key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="(only if bridge needs it)" />
+
+        <CheckBox
+            android:id="@+id/agent_auto_approve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Auto-approve tool calls" />
+
+        <CheckBox
+            android:id="@+id/agent_capture_context"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Capture shell context from the bridge" />
+
+        <Button
+            android:id="@+id/agent_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+    </LinearLayout>
+</ScrollView>

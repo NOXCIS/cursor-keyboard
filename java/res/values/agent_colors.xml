@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="agent_white">#FFFFFF</color>
+    <color name="agent_black">#000000</color>
+    <color name="agent_gray">#757575</color>
+    <color name="agent_blue">#2962FF</color>
+    <color name="agent_green">#2E7D32</color>
+    <color name="agent_red">#C62828</color>
+</resources>
